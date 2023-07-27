@@ -1,11 +1,10 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 import SignUpForm from './components/SignUpForm'
 import Authenticate from './components/Authenticate'
-import { useState } from 'react'
+
 
 function App() {
-  // const [count, setCount] = useState(0)
   const [token, setToken] = useState(null);
   return (
     <div>
