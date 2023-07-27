@@ -1,12 +1,18 @@
 import { useState } from 'react'
 
+
 export default function SignUpForm({setToken}) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
     async function handleSubmit(event) {
         event.preventDefault();
-        //qconsole.log("Hello 👋");
+        console.log("Hello 👋");
+        if((username.length<8) ||(password.length<8)){
+            setUsername('')
+            setPassword('')
+            return(setError("Username and Password must be eight characters or more"))
+        }
         try {
             const response = await fetch('https://fsa-jwt-practice.herokuapp.com/signup', 
               { 
@@ -20,9 +26,11 @@ export default function SignUpForm({setToken}) {
                 }) 
               })
             const result = await response.json();
-            setToken(result.token);
+            setToken(result.token)
             console.log(result);
-            console.log("Token: ", result.token)  
+            console.log("Token: ", result.token)
+            setUsername('')
+            setPassword('')
         } catch (error) {
           setError(error.message);
         }

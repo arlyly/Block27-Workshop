@@ -40,3 +40,21 @@
 .read-the-docs {
   color: #888;
 }
+form, label, input {
+  display: flex;
+  flex-direction: column;
+  
+}
+label {
+  padding: 10px;
+}
+input, button {
+  height: 30px;
+  width: 300px;
+  align-self: center;
+}
+button {
+  height: 50px;
+  width: 300px;
+  align-self: center;
+}
